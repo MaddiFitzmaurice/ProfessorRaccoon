@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 25
+  controlID: 139
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 108
+  controlID: 87
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -735,6 +735,19 @@ MonoBehaviour:
       layout: 4
       size: {x: 0, y: 0}
       sizeOverriden: 0
+    - dockPosition: 1
+      containerId: overlay-container--right
+      floating: 0
+      collapsed: 0
+      displayed: 0
+      snapOffset: {x: 48, y: 48}
+      snapOffsetDelta: {x: 0, y: 0}
+      snapCorner: 0
+      id: Cinemachine Tool Settings
+      index: 10
+      layout: 4
+      size: {x: 0, y: 0}
+      sizeOverriden: 0
   m_WindowGUID: 518a2c0577da1964cbc03e1af9d6409f
   m_Gizmos: 1
   m_OverrideSceneCullingMask: 6917529027641081856
@@ -793,13 +806,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.12889282, y: -0.60444903, z: 0.099907294, w: -0.7797837}
+    m_Target: {x: -0.07777551, y: -0.3392935, z: 0.028157137, w: -0.93704534}
     speed: 2
-    m_Value: {x: -0.1288918, y: -0.6044442, z: 0.0999065, w: -0.7797775}
+    m_Value: {x: -0.0777749, y: -0.33929083, z: 0.028156916, w: -0.93703794}
   m_Size:
-    m_Target: 5.542631
+    m_Target: 4.3657684
     speed: 2
-    m_Value: 5.542631
+    m_Value: 4.3657684
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -937,7 +950,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 26422
+  m_LastSelectedObjectID: 26378
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -975,8 +988,8 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 3e670000
-      m_LastClickedID: 26430
+      m_SelectedIDs: e0d8ffff
+      m_LastClickedID: -10016
       m_ExpandedIDs: 2cfbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -1048,7 +1061,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Packages/com.unity.cinemachine
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1091,7 +1104,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff000000008667000088670000
+    m_ExpandedIDs: ffffffff0000000086670000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

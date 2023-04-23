@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Stats
+    // Variables
     [SerializeField] private float _moveForce;
     [SerializeField] private float _targetVelocity;
+    [SerializeField] private Transform _camDir;
 
     // Inputs
-    private float _horizontalInput;
-    private float _verticalInput;
+    private Vector3 _moveDir;
     
     // Components
-    private Rigidbody rb;
+    private Rigidbody _rb;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -28,22 +28,27 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMovement();
-        Debug.Log(rb.velocity.magnitude);
     }
 
     void PlayerInput()
     {
-        _horizontalInput = Input.GetAxisRaw("Horizontal");
-        _verticalInput = Input.GetAxisRaw("Vertical");
+        float xInput = Input.GetAxisRaw("Horizontal");
+        float zInput = Input.GetAxisRaw("Vertical");
+
+        Vector3 relForward = _camDir.forward * zInput;
+        Vector3 relRight = _camDir.right * xInput;
+
+        relForward.y = 0;
+        relRight.y = 0;
+        
+        _moveDir = (relForward + relRight).normalized;
     }
 
     void PlayerMovement()
     {
-        Vector3 moveDir = new Vector3(_horizontalInput, 0, _verticalInput).normalized;
-
-        if (rb.velocity.magnitude < _targetVelocity)
+        if (_rb.velocity.magnitude < _targetVelocity)
         {
-            rb.AddForce(moveDir * _moveForce, ForceMode.Acceleration);
+            _rb.AddForce(_moveDir * _moveForce, ForceMode.Acceleration);
         }
     }
 }
