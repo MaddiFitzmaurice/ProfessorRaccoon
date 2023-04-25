@@ -5,55 +5,51 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Variables
-    [SerializeField] private float _moveForce;
-    [SerializeField] private float _targetVelocity;
-    [SerializeField] private Transform _camDir;
+    public float MoveForce;
+    public float TargetVelocity;
 
-    // Inputs
-    private Vector3 _moveDir;
+    // Transform Info
+    [HideInInspector] public Vector3 MoveDir;
+    public Transform CamDir;
     
     // Components
-    private Rigidbody _rb;
+    [HideInInspector] public Rigidbody Rb;
+
+    // State Machine
+    private StateMachine _stateMachine;
+    public PlayerIdleState IdleState;
+    public PlayerMoveState MoveState;
+
+    void Awake()
+    {
+        // State Machine
+        IdleState = new PlayerIdleState(this);
+        MoveState = new PlayerMoveState(this);
+        _stateMachine = new StateMachine();
+    }
 
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        Rb = GetComponent<Rigidbody>();
+        _stateMachine.ChangeState(IdleState);
     }
 
     void Update()
     {
-        PlayerInput();
+        _stateMachine.CurrentState.LogicUpdate();
     }
 
     void FixedUpdate()
     {
-        PlayerMovement();
+        _stateMachine.CurrentState.PhysicsUpdate();
     }
 
-    void PlayerInput()
+    public void ChangeState(BaseState newState)
     {
-        float xInput = Input.GetAxisRaw("Horizontal");
-        float zInput = Input.GetAxisRaw("Vertical");
-
-        Vector3 relForward = _camDir.forward * zInput;
-        Vector3 relRight = _camDir.right * xInput;
-
-        relForward.y = 0;
-        relRight.y = 0;
-        
-        _moveDir = (relForward + relRight).normalized;
-
-        if (_moveDir.magnitude != 0 )
-        {
-            transform.rotation = Quaternion.LookRotation(_moveDir, Vector3.up);
-        }
+        _stateMachine.ChangeState(newState);
     }
 
-    void PlayerMovement()
-    {
-        if (_rb.velocity.magnitude < _targetVelocity)
-        {
-            _rb.AddForce(_moveDir * _moveForce, ForceMode.Acceleration);
-        }
-    }
+    
+
+    
 }
