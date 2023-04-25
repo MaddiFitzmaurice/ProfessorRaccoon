@@ -42,6 +42,11 @@ public class Player : MonoBehaviour
         relRight.y = 0;
         
         _moveDir = (relForward + relRight).normalized;
+
+        if (_moveDir.magnitude != 0 )
+        {
+            transform.rotation = Quaternion.LookRotation(_moveDir, Vector3.up);
+        }
     }
 
     void PlayerMovement()
