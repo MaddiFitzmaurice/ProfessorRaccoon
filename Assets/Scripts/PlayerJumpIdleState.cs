@@ -24,7 +24,8 @@ public class PlayerJumpIdleState : BaseState
 
     public override void LogicUpdate()
     {
-        if (Physics.Raycast(_player.transform.position, -_player.transform.up, out RaycastHit hit, 0.16f))
+        if (Physics.BoxCast(_player.transform.position, _player.Collider.size, Vector3.down,
+            out RaycastHit hit, _player.transform.rotation, 0.16f))
         {
             Debug.DrawRay(_player.transform.position, -_player.transform.up * 0.16f, Color.green);
             
