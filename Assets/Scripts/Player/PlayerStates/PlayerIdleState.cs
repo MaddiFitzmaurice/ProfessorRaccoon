@@ -6,13 +6,23 @@ public class PlayerIdleState : PlayerBaseState
 {
     public PlayerIdleState(Player player) : base(player) {}
 
-    public override void LogicUpdate()
+    public override void Enter()
     {
-        base.LogicUpdate();
+        Debug.Log("Entered IdleState");
+
+        InputChannel.MoveEvent += OnMove;
     }
 
-    public override void PhysicsUpdate()
+    public override void Exit()
     {
-        base.PhysicsUpdate();
+        InputChannel.MoveEvent -= OnMove;
+    }
+
+    public void OnMove(Vector2 value)
+    {
+        if (value.magnitude != 0)
+        {
+            Player.StateMachine.ChangeState(Player.States.WalkState);
+        }
     }
 }
