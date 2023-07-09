@@ -2,25 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWalkState : PlayerBaseState
+public class PlayerWalkState : PlayerMoveState
 {
     public PlayerWalkState(Player player) : base(player) {}
 
     public override void Enter()
     {
+        base.Enter();
         Debug.Log("Entered WalkState");
-
-        InputChannel.MoveEvent += OnIdle;
     }
 
     public override void Exit()
     {
-        InputChannel.MoveEvent -= OnIdle;
+        base.Exit();
     }
 
-    public void OnIdle(Vector2 value)
+    public override void LogicUpdate()
     {
-        if (value.magnitude == 0)
+        if (MoveInput == Vector2.zero)
         {
             Player.StateMachine.ChangeState(Player.States.IdleState);
         }

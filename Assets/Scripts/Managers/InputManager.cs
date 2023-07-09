@@ -9,14 +9,30 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
 
     private void Awake()
     {
+        InputInitialisation();
+    }
+
+    private void OnEnable()
+    {
+        _inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.Disable();
+    }
+
+    public void InputInitialisation()
+    {
         _inputActions = new GameInput();
-        _inputActions.Gameplay.Enable();
+        GameplayControlsEnabled();
         _inputActions.Gameplay.SetCallbacks(this);
     }
 
-    private void OnDestroy()
+    public void GameplayControlsEnabled()
     {
-        _inputActions.Disable();
+        _inputActions.Gameplay.Enable();
+        _inputActions.UI.Disable();
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -31,13 +47,9 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (!context.performed)
         {
-            InputChannel.RaiseMoveEvent(context.ReadValue<Vector2>());
-        }
-        else if (context.canceled)
-        {
-            InputChannel.RaiseMoveEvent(context.ReadValue<Vector2>());
+            InputChannel.RaiseMoveEvent(context);
         }
     }
 }

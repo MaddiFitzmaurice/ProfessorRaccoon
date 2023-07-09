@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PlayerStateFactory
 {
-    // Player States
+    // Player Move States
     public PlayerIdleState IdleState { get; private set; }
     public PlayerWalkState WalkState { get; private set; }
     public PlayerSprintState SprintState { get; private set; }
+
+    // Player Air States
     public PlayerJumpState JumpState { get; private set; }
     public PlayerSprintJumpState SprintJumpState { get; private set; }
     public PlayerFallState FallState { get; private set; } 
