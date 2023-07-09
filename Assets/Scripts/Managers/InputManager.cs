@@ -37,7 +37,10 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        if (!context.performed)
+        {
+            InputChannel.RaiseJumpEvent(context);
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)

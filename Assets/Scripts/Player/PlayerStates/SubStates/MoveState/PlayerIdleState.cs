@@ -23,5 +23,9 @@ public class PlayerIdleState : PlayerMoveState
         {
             Player.StateMachine.ChangeState(Player.States.WalkState);
         }
+        else if (JumpInput)
+        {
+            Player.StateMachine.ChangeState(Player.States.JumpState);
+        }
     }
 }
