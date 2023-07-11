@@ -10,6 +10,15 @@ public class Player : MonoBehaviour
 
     // Components
     public Rigidbody Rb { get; private set; }
+
+    // Data
+    public float MoveSpeed;
+    public float MoveAccel;
+    public float MoveDecel;
+    public float VelocityPower;
+    public float SprintSpeed;
+    public float JumpHeight;
+    public float SprintJumpHeight;
     
     void Awake()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerMoveState
+public class PlayerIdleState : PlayerBaseState
 {
     public PlayerIdleState(Player player) : base(player) {}
 
@@ -19,7 +19,7 @@ public class PlayerIdleState : PlayerMoveState
 
     public override void LogicUpdate()
     {
-        if (MoveInput != Vector2.zero)
+        if (MoveInput != Vector3.zero)
         {
             Player.StateMachine.ChangeState(Player.States.WalkState);
         }

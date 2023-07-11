@@ -50,7 +50,7 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.started)
         {
             InputChannel.RaiseMoveEvent(context);
         }
