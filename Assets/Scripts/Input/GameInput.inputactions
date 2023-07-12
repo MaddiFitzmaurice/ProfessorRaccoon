@@ -26,7 +26,7 @@
                 {
                     "name": "Look",
                     "type": "Value",
-                    "id": "8b8780b7-ac6e-4542-9448-d8a3dec5f3e9",
+                    "id": "305510c5-1300-404c-b983-477b48922d9f",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -124,22 +124,22 @@
                 },
                 {
                     "name": "",
-                    "id": "4ff3e4a4-c748-4b66-97b9-2aac1e39d230",
-                    "path": "<Gamepad>/rightStick",
+                    "id": "d8d77dee-fa87-4e2b-8882-7c1ca1379c61",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Controller",
+                    "groups": "Keyboard",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "e4a009c2-5a24-4310-bf69-f4354b1f4ab2",
-                    "path": "<Mouse>/radius",
+                    "id": "615b36e9-7f15-41a5-a920-17b3b7dcdb82",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard",
+                    "groups": "Controller",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false

@@ -19,6 +19,8 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void LogicUpdate()
     {
+        PlayerRotation();
+
         if (MoveInput == Vector3.zero)
         {
             Player.StateMachine.ChangeState(Player.States.IdleState);

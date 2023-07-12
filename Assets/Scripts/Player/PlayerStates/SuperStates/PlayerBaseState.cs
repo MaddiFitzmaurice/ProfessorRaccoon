@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 
 public class PlayerBaseState : BaseState
 {
@@ -32,9 +33,7 @@ public class PlayerBaseState : BaseState
     // Receive inputs from InputManager
     public void OnMove(InputAction.CallbackContext context)
     {
-        Vector2 input = context.ReadValue<Vector2>();
-        MoveInput.x = input.x;
-        MoveInput.z = input.y;
+        CalculateMoveVector(context.ReadValue<Vector2>());
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -49,6 +48,22 @@ public class PlayerBaseState : BaseState
         }
     }
 
+    public void CalculateMoveVector(Vector2 input)
+    {
+        Vector3 camVectorRight = Player.Cam.transform.right;
+        Vector3 camVectorForward = Player.Cam.transform.forward;
+
+        camVectorForward.y = 0;
+        camVectorRight.y = 0;
+
+        Vector3 relRight = camVectorRight.normalized * input.x;
+        Vector3 relForward = camVectorForward.normalized * input.y;
+        MoveInput = (relRight + relForward).normalized;
+        MoveInput.y = 0;
+        Debug.Log(MoveInput);
+    }
+
+    // Movement
     public void PlayerMovement()
     {
         // Calculate desired velocity
@@ -66,6 +81,14 @@ public class PlayerBaseState : BaseState
             * Mathf.Sign(velocityDif);
 
         Player.Rb.AddForce(movement * MoveInput);
+    }
+
+    public void PlayerRotation()
+    {
+        if (MoveInput.magnitude != 0)
+        {
+            Player.transform.rotation = Quaternion.LookRotation(MoveInput, Vector3.up);
+        }
     }
 
     //public bool IsGrounded()

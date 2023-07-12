@@ -10,8 +10,11 @@ public class Player : MonoBehaviour
 
     // Components
     public Rigidbody Rb { get; private set; }
+    [Header("Components")]
+    public Camera Cam;
 
     // Data
+    [Header("Data")]
     public float MoveSpeed;
     public float MoveAccel;
     public float MoveDecel;

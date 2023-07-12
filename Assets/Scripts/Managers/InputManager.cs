@@ -31,6 +31,8 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
 
     public void GameplayControlsEnabled()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         _inputActions.Gameplay.Enable();
         _inputActions.UI.Disable();
     }
@@ -43,11 +45,6 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
         }
     }
 
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!context.started)
@@ -55,4 +52,6 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
             InputChannel.RaiseMoveEvent(context);
         }
     }
+
+    public void OnLook(InputAction.CallbackContext context) {}
 }
