@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Rigidbody Rb { get; private set; }
     [Header("Components")]
     public Camera Cam;
+    public BoxCollider GroundCheckCol;
 
     // Data
     [Header("Data")]

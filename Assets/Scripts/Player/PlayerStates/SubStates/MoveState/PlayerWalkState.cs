@@ -19,20 +19,24 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void LogicUpdate()
     {
-        PlayerRotation();
 
-        if (MoveInput == Vector3.zero)
+        if (JumpInput && IsGrounded())
+        {
+            Player.StateMachine.ChangeState(Player.States.JumpState);
+        }
+        else if (MoveInput == Vector3.zero)
         {
             Player.StateMachine.ChangeState(Player.States.IdleState);
         }
-        else if (JumpInput)
+        else if (Player.Rb.velocity.y < -0.1f && !IsGrounded())
         {
-            Player.StateMachine.ChangeState(Player.States.JumpState);
+            Player.StateMachine.ChangeState(Player.States.FallState);
         }
     }
 
     public override void PhysicsUpdate()
     {
         PlayerMovement();
+        PlayerRotation();
     }
 }
