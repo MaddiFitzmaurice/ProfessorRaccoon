@@ -15,14 +15,19 @@ public class Player : MonoBehaviour
     public BoxCollider GroundCheckCol;
 
     // Data
-    [Header("Data")]
-    public float MoveSpeed;
-    public float MoveAccel;
-    public float MoveDecel;
-    public float VelocityPower;
-    public float SprintSpeed;
-    public float JumpHeight;
-    public float SprintJumpHeight;
+    [Header("Core Data")]
+    public PlayerData WalkData;
+    public PlayerData SprintData;
+
+    public float MoveSpeed { get; private set; }
+    public float MoveAccel { get; private set; }
+    public float MoveDecel { get; private set; }
+    public float VelocityPower { get; private set; }
+    public float JumpHeight { get; private set; }
+
+    [Header("Additional Data")]
+    
+    public float SprintTime;
     
     void Awake()
     {
@@ -49,5 +54,14 @@ public class Player : MonoBehaviour
     void ComponentSetup()
     {
         Rb = GetComponent<Rigidbody>();
+    }
+
+    public void DataChange(PlayerData data)
+    {
+        MoveSpeed = data.MoveSpeed;
+        MoveAccel = data.MoveAccel;
+        MoveDecel = data.MoveDecel;
+        VelocityPower = data.VelocityPower;
+        JumpHeight = data.JumpHeight;
     }
 }

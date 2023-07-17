@@ -10,6 +10,7 @@ public class PlayerWalkState : PlayerBaseState
     {
         base.Enter();
         Debug.Log("Entered WalkState");
+        Player.DataChange(Player.WalkData);
     }
 
     public override void Exit()
@@ -19,7 +20,6 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void LogicUpdate()
     {
-
         if (JumpInput && IsGrounded())
         {
             Player.StateMachine.ChangeState(Player.States.JumpState);
@@ -31,6 +31,10 @@ public class PlayerWalkState : PlayerBaseState
         else if (Player.Rb.velocity.y < -0.1f && !IsGrounded())
         {
             Player.StateMachine.ChangeState(Player.States.FallState);
+        }
+        else if (SprintInput)
+        {
+            Player.StateMachine.ChangeState(Player.States.SprintState);
         }
     }
 

@@ -54,4 +54,12 @@ public class InputManager : MonoBehaviour, GameInput.IGameplayActions
     }
 
     public void OnLook(InputAction.CallbackContext context) {}
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            InputChannel.RaiseSprintEvent(context);
+        }
+    }
 }

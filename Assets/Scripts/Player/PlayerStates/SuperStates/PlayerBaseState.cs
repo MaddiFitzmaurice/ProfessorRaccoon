@@ -7,11 +7,11 @@ using UnityEngine.Windows;
 public class PlayerBaseState : BaseState
 {
     protected Player Player;
+
     protected static Vector3 MoveInput;
     protected static bool JumpInput;
+    protected static bool SprintInput;
     protected static float CurrentSpeed;
-
-    private Vector2 _rawInput;
 
     public PlayerBaseState(Player player)
     {
@@ -24,16 +24,14 @@ public class PlayerBaseState : BaseState
     {
         InputChannel.MoveEvent += OnMove;
         InputChannel.JumpEvent += OnJump;
+        InputChannel.SprintEvent += OnSprint;
     }
 
     public override void Exit()
     {
         InputChannel.MoveEvent -= OnMove;
         InputChannel.JumpEvent -= OnJump;
-    }
-
-    public override void LogicUpdate()
-    {
+        InputChannel.SprintEvent -= OnSprint;
     }
 
     // Receive inputs from InputManager
@@ -54,6 +52,12 @@ public class PlayerBaseState : BaseState
         }
     }
 
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        SprintInput = context.started;
+    }
+
+    // Movement Vector Calculation
     public void CalculateMoveVector(Vector2 rawInput)
     {
         Vector3 camVectorRight = Player.Cam.transform.right;
@@ -106,7 +110,6 @@ public class PlayerBaseState : BaseState
         Vector3 jumpVector = Vector3.up;
         float jumpForce = Mathf.Sqrt(Player.JumpHeight * Physics.gravity.y * -2) * Player.Rb.mass;
         Player.Rb.AddForce(jumpVector * jumpForce, ForceMode.Impulse);
-        Debug.Log(jumpForce);
     }
 
     public bool IsGrounded()

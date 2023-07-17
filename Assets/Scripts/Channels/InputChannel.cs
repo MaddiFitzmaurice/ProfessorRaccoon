@@ -8,6 +8,7 @@ public static class InputChannel
 {
     public static Action<InputAction.CallbackContext> MoveEvent;
     public static Action<InputAction.CallbackContext> JumpEvent;
+    public static Action<InputAction.CallbackContext> SprintEvent;
 
     public static void RaiseMoveEvent(InputAction.CallbackContext context)
     {
@@ -17,5 +18,10 @@ public static class InputChannel
     public static void RaiseJumpEvent(InputAction.CallbackContext context)
     {
         JumpEvent?.Invoke(context);
+    }
+
+    public static void RaiseSprintEvent(InputAction.CallbackContext context)
+    {
+        SprintEvent?.Invoke(context);
     }
 }

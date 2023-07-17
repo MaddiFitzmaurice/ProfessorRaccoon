@@ -9,6 +9,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        Player.DataChange(Player.WalkData);
         Debug.Log("Entered IdleState");
     }
 
