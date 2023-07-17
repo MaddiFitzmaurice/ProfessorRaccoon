@@ -12,17 +12,18 @@ public class PlayerFallState : PlayerBaseState
         Debug.Log("Entered FallState");
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void LogicUpdate()
     {
         if (IsGrounded())
         {
             Player.StateMachine.ChangeState(Player.States.IdleState);
         }
+    }
+
+    public override void PhysicsUpdate()
+    {
+        PlayerAirMovement();
+        PlayerRotation();
     }
 
 }

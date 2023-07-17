@@ -16,4 +16,4 @@ MonoBehaviour:
   MoveAccel: 2
   MoveDecel: 0.5
   VelocityPower: 2
-  JumpHeight: 0.5
+  JumpHeight: 0.3

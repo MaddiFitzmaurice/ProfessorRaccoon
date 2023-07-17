@@ -105,13 +105,6 @@ public class PlayerBaseState : BaseState
         }
     }
 
-    public void Jump()
-    {
-        Vector3 jumpVector = Vector3.up;
-        float jumpForce = Mathf.Sqrt(Player.JumpHeight * Physics.gravity.y * -2) * Player.Rb.mass;
-        Player.Rb.AddForce(jumpVector * jumpForce, ForceMode.Impulse);
-    }
-
     public bool IsGrounded()
     {
         return Physics.BoxCast(Player.gameObject.transform.position, 

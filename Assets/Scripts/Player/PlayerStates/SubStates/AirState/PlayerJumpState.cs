@@ -2,40 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpState : PlayerBaseState
+public class PlayerJumpState : PlayerBaseJumpState
 {
-    private float _jumpTime;
-    private const float JumpBuffer = 0.15f;
-
     public PlayerJumpState(Player player) : base(player) {}
 
     public override void Enter()
     {
         base.Enter();
         Debug.Log("Entered JumpState");
-        _jumpTime = 0;
-        Jump();
     }
 
-    public override void LogicUpdate()
+    protected override void Jump()
     {
-        if (Player.Rb.velocity.y < 0.1f && _jumpTime > JumpBuffer)
-        {
-            Player.StateMachine.ChangeState(Player.States.FallState);
-        }
-
-        _jumpTime += Time.deltaTime;
-    }
-
-    public override void PhysicsUpdate()
-    {
-        PlayerAirMovement();
-        PlayerRotation();
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
+        Vector3 jumpVector = Vector3.up;
+        float jumpForce = Mathf.Sqrt(Player.JumpHeight * Physics.gravity.y * -2) * Player.Rb.mass;
+        Player.Rb.AddForce(jumpVector * jumpForce, ForceMode.Impulse);
     }
 }
 

@@ -33,6 +33,10 @@ public class PlayerSprintState : PlayerBaseState
             SprintInput = false;
             Player.StateMachine.ChangeState(Player.States.IdleState);
         }
+        else if (JumpInput && IsGrounded())
+        {
+            Player.StateMachine.ChangeState(Player.States.SprintJumpState);
+        }
 
         _sprintTimer += Time.deltaTime;
     }
