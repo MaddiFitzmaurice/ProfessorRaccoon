@@ -14,11 +14,13 @@ public class PlayerSprintState : PlayerBaseState
         Debug.Log("Entered SprintState");
         Player.DataChange(Player.SprintData);
         _sprintTimer = 0;
+        Player.Animator.SetBool("IsSprinting", true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        Player.Animator.SetBool("IsSprinting", false);
     }
 
     public override void LogicUpdate()

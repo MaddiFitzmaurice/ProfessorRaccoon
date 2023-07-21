@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [Header("Components")]
     public Camera Cam;
     public BoxCollider GroundCheckCol;
+    public Animator Animator;
 
     // Data
     [Header("Core Data")]

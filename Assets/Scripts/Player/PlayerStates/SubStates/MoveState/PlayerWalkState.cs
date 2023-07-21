@@ -11,11 +11,13 @@ public class PlayerWalkState : PlayerBaseState
         base.Enter();
         Debug.Log("Entered WalkState");
         Player.DataChange(Player.WalkData);
+        Player.Animator.SetBool("IsWalking", true);
     }
 
     public override void Exit()
     {
         base.Exit();
+        Player.Animator.SetBool("IsWalking", false);
     }
 
     public override void LogicUpdate()
