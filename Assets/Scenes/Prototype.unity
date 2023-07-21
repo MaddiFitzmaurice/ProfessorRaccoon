@@ -240,7 +240,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_LocalRotation: {x: 0.14220116, y: 0.00057739846, z: -0.00008294967, w: 0.9898376}
+  m_LocalRotation: {x: 0.14220113, y: 0.00057739846, z: -0.00008294966, w: 0.98983765}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -513,7 +513,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462745811}
-  m_LocalRotation: {x: 0.16018222, y: 0.000575815, z: -0.00009344189, w: 0.9870873}
+  m_LocalRotation: {x: 0.16018222, y: 0.000575832, z: -0.00009344464, w: 0.9870873}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1257,7 +1257,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038744822}
-  m_LocalRotation: {x: 0.14220111, y: 0.0005774278, z: -0.000082953884, w: 0.98983765}
+  m_LocalRotation: {x: 0.1422011, y: 0.00057739834, z: -0.00008294965, w: 0.98983765}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1342,11 +1342,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd7e01f2151c1741b8eea2678b40858, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 330585545}
-  GroundCheckCol: {fileID: 1474723145}
-  Animator: {fileID: 1279761000}
-  WalkData: {fileID: 11400000, guid: 0c4b54ff3cfc9a74fb0920ef2333b33e, type: 2}
-  SprintData: {fileID: 11400000, guid: 7523f9b0faaa08e4dbd22a480c991341, type: 2}
+  <Cam>k__BackingField: {fileID: 330585545}
+  <GroundCheckCol>k__BackingField: {fileID: 1474723145}
+  <Animator>k__BackingField: {fileID: 1279761000}
+  <WalkData>k__BackingField: {fileID: 11400000, guid: 0c4b54ff3cfc9a74fb0920ef2333b33e,
+    type: 2}
+  <SprintData>k__BackingField: {fileID: 11400000, guid: 7523f9b0faaa08e4dbd22a480c991341,
+    type: 2}
   SprintTime: 5
 --- !u!850595691 &1213364919
 LightingSettings:

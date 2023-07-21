@@ -12,14 +12,12 @@ public class PlayerIdleState : PlayerBaseState
         Player.DataChange(Player.WalkData);
         Debug.Log("Entered IdleState");
         Player.Animator.SetBool("IsIdle", true);
-
     }
 
     public override void Exit()
     {
         base.Exit();
         Player.Animator.SetBool("IsIdle", false);
-
     }
 
     public override void LogicUpdate()

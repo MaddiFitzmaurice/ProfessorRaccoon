@@ -10,15 +10,15 @@ public class Player : MonoBehaviour
 
     // Components
     public Rigidbody Rb { get; private set; }
-    [Header("Components")]
-    public Camera Cam;
-    public BoxCollider GroundCheckCol;
-    public Animator Animator;
+    [field:Header("Components")]
+    [field:SerializeField] public Camera Cam { get; private set; }
+    [field:SerializeField] public BoxCollider GroundCheckCol { get; private set; }
+    [field:SerializeField] public Animator Animator { get; private set; }
 
     // Data
-    [Header("Core Data")]
-    public PlayerData WalkData;
-    public PlayerData SprintData;
+    [field:Header("Core Data")]
+    [field:SerializeField] public PlayerData WalkData { get; private set; }
+    [field:SerializeField] public PlayerData SprintData { get; private set; }
 
     public float MoveSpeed { get; private set; }
     public float MoveAccel { get; private set; }
@@ -26,9 +26,8 @@ public class Player : MonoBehaviour
     public float VelocityPower { get; private set; }
     public float JumpHeight { get; private set; }
 
-    [Header("Additional Data")]
-    
-    public float SprintTime;
+    [field:Header("Additional Data")]
+    [field:SerializeField] public float SprintTime { get; private set; }
     
     void Awake()
     {
