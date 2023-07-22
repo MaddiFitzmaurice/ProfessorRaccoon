@@ -10,6 +10,13 @@ public class PlayerFallState : PlayerBaseState
     {
         base.Enter();
         Debug.Log("Entered FallState");
+        Player.Animator.SetBool("IsFalling", true);
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        Player.Animator.SetBool("IsFalling", false);
     }
 
     public override void LogicUpdate()

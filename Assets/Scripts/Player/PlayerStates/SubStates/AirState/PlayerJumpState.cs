@@ -8,8 +8,15 @@ public class PlayerJumpState : PlayerBaseJumpState
 
     public override void Enter()
     {
+        Player.Animator.SetBool("IsJumping", true);
         base.Enter();
         Debug.Log("Entered JumpState");
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+        Player.Animator.SetBool("IsJumping", false);
     }
 
     protected override void Jump()
