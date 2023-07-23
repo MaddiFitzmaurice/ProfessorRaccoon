@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,10 +17,12 @@ public class Player : MonoBehaviour
     [field:SerializeField] public Animator Animator { get; private set; }
 
     // Data
-    [field:Header("Core Data")]
+    [field:Header("Movement Data")]
     [field:SerializeField] public PlayerData WalkData { get; private set; }
     [field:SerializeField] public PlayerData SprintData { get; private set; }
+    [field:SerializeField] public PlayerData InAirData { get; private set; }
 
+    // Base data to change based on state
     public float MoveSpeed { get; private set; }
     public float MoveAccel { get; private set; }
     public float MoveDecel { get; private set; }
@@ -28,7 +31,9 @@ public class Player : MonoBehaviour
 
     [field:Header("Additional Data")]
     [field:SerializeField] public float SprintTime { get; private set; }
-    
+    [field:SerializeField] public float WalkJumpHeight { get; private set; }
+    [field: SerializeField] public float SprintJumpHeight { get; private set; }
+
     void Awake()
     {
         ComponentSetup();
@@ -62,6 +67,10 @@ public class Player : MonoBehaviour
         MoveAccel = data.MoveAccel;
         MoveDecel = data.MoveDecel;
         VelocityPower = data.VelocityPower;
-        JumpHeight = data.JumpHeight;
+    }
+
+    public void SetJumpHeight(float height)
+    {
+        JumpHeight = height;
     }
 }

@@ -10,6 +10,7 @@ public class PlayerSprintJumpState : PlayerBaseJumpState
 
     public override void Enter()
     {
+        Player.SetJumpHeight(Player.SprintJumpHeight);
         base.Enter();
         Debug.Log("Entered SprintJumpState");
     }

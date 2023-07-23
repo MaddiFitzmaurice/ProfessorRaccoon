@@ -12,5 +12,4 @@ public class PlayerData : ScriptableObject
     public float MoveAccel;
     public float MoveDecel;
     public float VelocityPower;
-    public float JumpHeight;
 }

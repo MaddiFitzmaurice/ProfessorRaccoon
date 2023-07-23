@@ -23,6 +23,7 @@ public class PlayerFallState : PlayerBaseState
     {
         if (IsGrounded())
         {
+            Player.StopAllCoroutines();
             Player.StateMachine.ChangeState(Player.States.IdleState);
         }
     }

@@ -1453,7 +1453,11 @@ MonoBehaviour:
     type: 2}
   <SprintData>k__BackingField: {fileID: 11400000, guid: 7523f9b0faaa08e4dbd22a480c991341,
     type: 2}
+  <InAirData>k__BackingField: {fileID: 11400000, guid: a31dd123df6b6364d85e616207f9bb91,
+    type: 2}
   <SprintTime>k__BackingField: 3
+  <WalkJumpHeight>k__BackingField: 1
+  <SprintJumpHeight>k__BackingField: 0.3
 --- !u!850595691 &1213364919
 LightingSettings:
   m_ObjectHideFlags: 0

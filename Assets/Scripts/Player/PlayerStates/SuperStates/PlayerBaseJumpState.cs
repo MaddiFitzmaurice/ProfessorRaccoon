@@ -14,6 +14,7 @@ public abstract class PlayerBaseJumpState : PlayerBaseState
         base.Enter();
         JumpTime = 0;
         Jump();
+        Player.DataChange(Player.InAirData);
     }
 
     public override void LogicUpdate()
@@ -28,7 +29,7 @@ public abstract class PlayerBaseJumpState : PlayerBaseState
 
     public override void PhysicsUpdate()
     {
-        PlayerAirMovement();
+        PlayerMovement();
         PlayerRotation();
     }
 
